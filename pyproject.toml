@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cxo-council"
+version = "0.1.0"
+description = "Minimal 4-stage CxO Council for governed decision-making"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "Your Name", email = "your.email@example.com"}
+]
+keywords = ["governance", "llm", "decision-making", "council"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "httpx>=0.27.0",
+]
+
+[project.scripts]
+cxo = "cxo_council.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/cxo-council"
+Issues = "https://github.com/yourusername/cxo-council/issues"
