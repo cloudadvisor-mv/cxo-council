@@ -1,0 +1,25 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "cxo-council-consumer"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# Queue consumer configuration
+[[queues.consumers]]
+queue = "cxo-review-queue"
+max_batch_size = 1        # Process one job at a time
+max_batch_timeout = 60    # Wait up to 60 seconds before processing batch
+max_retries = 3           # Retry failed jobs up to 3 times
+dead_letter_queue = "cxo-review-dlq"  # Send failed jobs to DLQ
+
+# R2 bucket binding
+[[r2_buckets]]
+binding = "STORAGE"
+bucket_name = "cxo-council-storage"
+
+# KV namespace binding
+[[kv_namespaces]]
+binding = "JOBS"
+id = "YOUR_KV_NAMESPACE_ID"  # Must match ingress worker KV namespace
+
+# Environment variables (set secrets via CLI)
+# wrangler secret put OPENROUTER_API_KEY

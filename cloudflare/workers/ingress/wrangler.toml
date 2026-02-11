@@ -1,0 +1,29 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "cxo-council-ingress"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# Routes configuration
+# Uncomment and configure for custom domain
+# [env.production]
+# routes = [
+#   { pattern = "council.yourdomain.com/*", zone_name = "yourdomain.com" }
+# ]
+
+# Queue producer binding
+[[queues.producers]]
+binding = "REVIEW_QUEUE"
+queue = "cxo-review-queue"
+
+# R2 bucket binding
+[[r2_buckets]]
+binding = "STORAGE"
+bucket_name = "cxo-council-storage"
+
+# KV namespace binding
+[[kv_namespaces]]
+binding = "JOBS"
+id = "YOUR_KV_NAMESPACE_ID"  # Replace after running: wrangler kv:namespace create JOBS
+
+# Environment variables (set secrets via CLI)
+# wrangler secret put OPENROUTER_API_KEY

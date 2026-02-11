@@ -2,7 +2,32 @@
 
 **Minimal 4-stage executive deliberation for governed decision-making.**
 
-A lightweight command-line tool that runs your plans, specifications, and proposals through a multi-perspective executive review process using LLMs.
+A lightweight tool that runs your plans, specifications, and proposals through a multi-perspective executive review process using LLMs.
+
+## Deployment Options
+
+### 🌐 Cloudflare Workers (Recommended)
+Serverless API deployed globally on Cloudflare's edge network.
+
+- ✅ No local installation required
+- ✅ Async processing (no timeout limits)
+- ✅ Global CDN with low latency
+- ✅ Auto-scaling
+- ✅ ~$5/month + LLM costs
+
+**[→ Deploy to Cloudflare](./cloudflare/QUICKSTART.md)**
+
+### 💻 Local CLI
+Python command-line tool for local execution.
+
+- ✅ Simple setup
+- ✅ Full control
+- ✅ Offline-capable (with local models)
+- ✅ Free (except LLM costs)
+
+**[→ Install Local CLI](./docs/GETTING_STARTED.md)**
+
+---
 
 ## What It Does
 
